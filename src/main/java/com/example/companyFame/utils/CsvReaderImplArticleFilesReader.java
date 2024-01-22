@@ -13,12 +13,12 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Service
 @RequiredArgsConstructor
-public class ArticleFilesReader implements IArticleFilesReader {
+public class CsvReaderImplArticleFilesReader implements IArticleFilesReader {
 
     @Value("${articles.files.path}")
     String pathToArticles;
 
-    public ArticleFilesReader(String pathToArticles) {
+    public CsvReaderImplArticleFilesReader(String pathToArticles) {
         this.pathToArticles = pathToArticles;
     }
 

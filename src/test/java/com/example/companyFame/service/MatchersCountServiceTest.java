@@ -4,8 +4,8 @@ import com.example.companyFame.model.Company;
 import com.example.companyFame.model.CompanyCsv;
 import com.example.companyFame.model.CompanyInfoCache;
 import com.example.companyFame.model.NewspaperArticlesCache;
-import com.example.companyFame.utils.ArticleFilesReader;
-import com.example.companyFame.utils.CompanyListParser;
+import com.example.companyFame.utils.CsvReaderImplArticleFilesReader;
+import com.example.companyFame.utils.XmlReaderImplCompanyListParser;
 import com.example.companyFame.utils.IArticleFilesReader;
 import com.opencsv.exceptions.CsvException;
 import org.junit.jupiter.api.Assertions;
@@ -42,11 +42,11 @@ public class MatchersCountServiceTest {
     @BeforeEach
     void warmUp() throws IOException, CsvException {
         String pathToArticles = "testData/data/";
-        IArticleFilesReader xmlFileReader = new ArticleFilesReader(pathToArticles);
+        IArticleFilesReader xmlFileReader = new CsvReaderImplArticleFilesReader(pathToArticles);
         xmlFileReader.parseAllFilesFromTheFolder(articles);
 
         String pathToCompaniesCsv = "testData/1_company_list.csv";
-        CompanyListParser csvParser = new CompanyListParser(pathToCompaniesCsv);
+        XmlReaderImplCompanyListParser csvParser = new XmlReaderImplCompanyListParser(pathToCompaniesCsv);
         csvParser.parseCsvToCompaniesInfos(companiesGeneralInfo, companiesRelatedNames);
     }
 

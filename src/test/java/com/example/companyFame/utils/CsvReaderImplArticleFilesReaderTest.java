@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleFilesReaderTest {
+public class CsvReaderImplArticleFilesReaderTest {
 
     private IArticleFilesReader sut;
 
@@ -15,7 +15,7 @@ public class ArticleFilesReaderTest {
     void parseAllFilesFromTheFolder_getContextOfArticles_whenFilesDataIsValid() throws IOException {
         //given
         String filePath = "testData/data/";
-        sut = new ArticleFilesReader(filePath);
+        sut = new CsvReaderImplArticleFilesReader(filePath);
         List<String> articles = new ArrayList<>();
 
         //when

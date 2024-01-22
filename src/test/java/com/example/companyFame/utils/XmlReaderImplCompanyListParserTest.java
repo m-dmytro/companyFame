@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CompanyListParserTest {
+public class XmlReaderImplCompanyListParserTest {
 
     private ICompanyListParser sut;
 
@@ -18,7 +18,7 @@ public class CompanyListParserTest {
     void parseCsvToCompaniesInfos_splitCompanyNameOntoPossibleRefs_whenFileDataIsValid() throws IOException, CsvException {
         //given
         String filePath = "testData/1_company_list.csv";
-        sut = new CompanyListParser(filePath);
+        sut = new XmlReaderImplCompanyListParser(filePath);
 
         Map<Integer, CompanyCsv> companiesGeneralInfo = new HashMap<>();
         Map<Integer, Company > companiesRelatedNames = new HashMap<>();
@@ -61,7 +61,7 @@ public class CompanyListParserTest {
     void parseCsvToCompaniesInfos_skipDuplicatesInCompanyNames_whenSomeCompaniesContainsSameRefs() throws IOException, CsvException {
         //given
         String filePath = "testData/1_company_list.csv";
-        sut = new CompanyListParser(filePath);
+        sut = new XmlReaderImplCompanyListParser(filePath);
 
         Map<Integer, CompanyCsv> companiesGeneralInfo = new HashMap<>();
         Map<Integer, Company > companiesRelatedNames = new HashMap<>();
@@ -94,7 +94,7 @@ public class CompanyListParserTest {
     void parseCsvToCompaniesInfos_throwException_whenInvalidCsvStructureInARow() {
         //given
         String filePath = "testData/invalid1_company_list.csv";
-        sut = new CompanyListParser(filePath);
+        sut = new XmlReaderImplCompanyListParser(filePath);
 
         Map<Integer, CompanyCsv> companiesGeneralInfo = new HashMap<>();
         Map<Integer, Company > companiesRelatedNames = new HashMap<>();
@@ -112,7 +112,7 @@ public class CompanyListParserTest {
     void parseCsvToCompaniesInfos_throwException_whenEmptyRows() {
         //given
         String filePath = "testData/invalid2_company_list.csv";
-        sut = new CompanyListParser(filePath);
+        sut = new XmlReaderImplCompanyListParser(filePath);
 
         Map<Integer, CompanyCsv> companiesGeneralInfo = new HashMap<>();
         Map<Integer, Company > companiesRelatedNames = new HashMap<>();

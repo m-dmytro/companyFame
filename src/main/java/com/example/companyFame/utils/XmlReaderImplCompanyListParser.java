@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor
-public class CompanyListParser implements ICompanyListParser {
+public class XmlReaderImplCompanyListParser implements ICompanyListParser {
 
     private static final String REFER_TO_TXT = "refer to";
     private static final String KNOWN_AS_TXT = "known as";
@@ -42,7 +42,7 @@ public class CompanyListParser implements ICompanyListParser {
     @Value("${company.file.path}")
     String filePath;
 
-    public CompanyListParser(String filePath) {
+    public XmlReaderImplCompanyListParser(String filePath) {
         this.filePath = filePath;
     }
 
